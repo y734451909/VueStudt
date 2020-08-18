@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <a v-bind:href="aHref">百度一下</a>
+  <img v-bind:src="imgURL" alt="">
+<!--  错误的做法，这里不可以使用mustache语法-->
+<!--  <img src="{{imgURL}}}" alt="">-->
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app=new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      imgURL: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2164724814,1401845036&fm=26&gp=0.jpg',
+      aHref: 'https://www.baidu.com'
+    }
+  })
+</script>
+
+</body>
+</html>

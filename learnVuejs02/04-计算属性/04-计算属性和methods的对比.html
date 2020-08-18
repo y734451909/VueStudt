@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  方案1：直接拼接-->
+  <h1>{{fname+' '+lname}}</h1>
+  <h1>{{fname}} {{lname}}</h1>
+<!--  方案2：通过定义methods-->
+  <h1>{{getFulname()}}</h1>
+  <h1>{{getFulname()}}</h1>
+  <h1>{{getFulname()}}</h1>
+<!--  方案3：通过computed-->
+  <h1>{{fullName}}</h1>
+  <h1>{{fullName}}</h1>
+  <h1>{{fullName}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app=new Vue({
+    el: '#app',
+    data: {
+      fname: 'xiaofang',
+      lname: 'wang'
+    },
+    computed: {
+      fullName: function () {
+        console.log('fullName');
+        return this.fname+' '+this.lname
+      }
+    },
+    methods: {
+      getFulname(){
+        console.log('getFulname()');
+        return this.fname+' '+this.lname
+      }
+    }
+  })
+</script>
+</body>
+</html>

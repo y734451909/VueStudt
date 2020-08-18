@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{fname+' '+lname}}</h1>
+  <h1>{{fname}} {{lname}}</h1>
+  <h1>{{getFulname()}}</h1>
+  <h1>{{fullName}}</h1>
+
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app=new Vue({
+    el: '#app',
+    data: {
+      fname: 'xiaofang',
+      lname: 'wang'
+    },
+    computed:{
+      fullName: function () {
+        return this.fname+' '+this.lname
+      }
+    },
+    methods: {
+      getFulname(){
+        return this.fname+' '+this.lname
+      }
+    }
+  })
+</script>
+</body>
+</html>
