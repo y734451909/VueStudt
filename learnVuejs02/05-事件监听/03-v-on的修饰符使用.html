@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03-v-on的修饰符使用</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+
+  <!--1、 .stop修饰符的使用-->
+      <!--        使用场景：div中有按钮，点击按钮的时候不能促发div的点击事件-->
+  1、 .stop修饰符的使用
+  <div @Click="btn1Click1()">
+    div内容1
+    <button @Click="divClick1()">按钮</button>
+    div内容1
+  </div>
+
+  <div @Click="btn1Click1()">
+    div内容2
+    <button @Click.stop="divClick1()">按钮</button>
+    div内容2
+  </div>
+
+<!--2、 .prevent的修饰符-->
+<!--  使用场景:点击提交后自动向服务器提交数据，在提交之后进行一些监听，然后再提交,也可以自己写提交-->
+  <hr>
+  2、 .prevent的修饰符
+  <form action="baidu">
+    <input type="submit" value="提交" @Click.prevent="submitClick()">
+  </form>
+
+<!--  3、监听某个键盘的键帽点击-->
+  <hr>
+  3、监听某个键盘的键帽点击
+  <input type="text" v-on:keyup.enter="keyup">
+<!--  语法糖-->
+  <input type="text" @keyup="keyup">
+
+
+<!--  4、 .once修饰符的使用-->
+  <hr>
+  4、 .once修饰符的使用
+  <button @Click.once="btn1Click2">按钮2</button>
+  <button @Click="btn1Click2">按钮2</button>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app=new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    methods:{
+      btn1Click1() {
+        console.log("btn1Click1")
+      },
+      divClick1(){
+        console.log("divClick1")
+      },
+      submitClick(){
+        console.log("submitClick")
+      },
+      keyup(){
+        console.log("keyup")
+      },
+      btn1Click2() {
+        console.log("btn1Click2")
+      }
+    }
+  })
+</script>
+</body>
+</html>
